@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JARVIS | Velto</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sidebar">
+<div class="brand">VELTO.</div>
+<a class="nav-item" href="index.html">Home</a>
+<a class="nav-item" href="focus.html">Focus</a>
+<a class="nav-item" href="planner.html">Planner</a>
+<a class="nav-item" href="progress.html">Progress</a>
+<a class="nav-item active" href="jarvis.html">JARVIS</a>
+<a class="nav-item" href="resources.html">Resources</a>
+</div>
+
+<main class="main">
+<div class="eyebrow">YOUR AI COMPANION</div>
+<h1>Meet JARVIS.</h1>
+<p>Your intelligent study companion.</p>
+
+<div class="tool-card" style="margin-top:30px">
+<h2>✦ JARVIS</h2>
+<p>Ask questions, brainstorm ideas, or get help with your learning.</p>
+<div id="chat" style="margin:20px 0;padding:15px;background:#15151e;border-radius:12px">
+<p>JARVIS: Hello. I'm ready when you are.</p>
+</div>
+<form id="chat-form">
+<input id="message" placeholder="Ask JARVIS something..." required style="width:100%;padding:14px;border-radius:12px;margin-bottom:12px">
+<button type="submit" class="nav-item">Send message ↗</button>
+</form>
+<p style="margin-top:15px;font-size:12px">AI connection will be added in a later step.</p>
+</div>
+</main>
+
+<script>
+document.getElementById("chat-form").addEventListener("submit",function(e){
+e.preventDefault();
+const msg=document.getElementById("message").value.trim();
+if(!msg)return;
+const chat=document.getElementById("chat");
+chat.innerHTML += "<p><b>You:</b> "+msg.replace(/</g,"&lt;").replace(/>/g,"&gt;")+"</p>";
+chat.innerHTML += "<p>JARVIS: The AI connection isn't active yet. We'll connect me soon.</p>";
+document.getElementById("message").value="";
+});
+</script>
+</body>
+</html>
