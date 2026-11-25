@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velto | Planner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sidebar">
+<div class="brand">velto<span>.</span></div>
+<div class="nav-label">WORKSPACE</div>
+<a class="nav-item" href="index.html">⌂ &nbsp; Home</a>
+<a class="nav-item" href="focus.html">◷ &nbsp; Focus</a>
+<a class="nav-item active" href="planner.html">▦ &nbsp; Planner</a>
+<a class="nav-item" href="progress.html">↗ &nbsp; Progress</a>
+<a class="nav-item" href="jarvis.html">✦ &nbsp; JARVIS</a>
+<a class="nav-item" href="resources.html">⌘ &nbsp; Resources</a>
+</div>
+<main>
+<header>
+<div>
+<div class="eyebrow">ORGANISE YOUR DAY</div>
+<h1>Your <span>planner.</span></h1>
+<p class="sub">Turn intentions into action.</p>
+</div>
+<div class="profile">V</div>
+</header>
+
+<section class="section">
+<div class="tool-card">
+<h2>Today's tasks</h2>
+<form id="taskForm">
+<input id="taskInput" placeholder="Add a task..." required style="padding:14px;width:70%;background:#191923;color:white;border:1px solid rgba(255,255,255,.1);border-radius:10px">
+<button class="primary-btn" type="submit">Add +</button>
+</form>
+<ul id="tasks" style="padding:0;list-style:none"></ul>
+</div>
+</section>
+</main>
+<script>
+document.getElementById('taskForm').addEventListener('submit',function(e){
+e.preventDefault();
+const input=document.getElementById('taskInput');
+const li=document.createElement('li');
+li.style.cssText='padding:15px;margin-top:12px;background:#191923;border:1px solid rgba(255,255,255,.08);border-radius:10px;display:flex;justify-content:space-between;align-items:center';
+const label=document.createElement('span');
+label.textContent=input.value;
+const check=document.createElement('input');
+check.type='checkbox';
+check.onchange=()=>{label.style.textDecoration=check.checked?'line-through':'none';label.style.opacity=check.checked?'.5':'1';};
+const remove=document.createElement('button');
+remove.textContent='×';
+remove.style.cssText='background:none;color:#aaa;border:0;font-size:20px';
+remove.onclick=()=>li.remove();
+li.append(label,check,remove);
+document.getElementById('tasks').appendChild(li);
+input.value='';
+});
+</script>
+</body>
+</html>
